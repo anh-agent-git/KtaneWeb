@@ -71,6 +71,7 @@ namespace KtaneWeb
         public string popupLinks = "Links";
         public string popupTools = "Tools";
         public string popupView = "View";
+        public string popupRandom = "Random";
         public string popupMore = "More";
         public string tabRuleSeed = "Rule seed";
         public string tabFilters = "Filters";
@@ -109,6 +110,7 @@ namespace KtaneWeb
         public string ignoredTableAnchor = "Table of ignored modules";
         public string ignoreTableURL = "More/Ignore%20Table.html";
         public string tfcAnchor = "Text Field Calculator";
+        public string randomModule = "Random module from current filter";
         public string puzzleAnchor = "PUZZLES";
         public string quizAnchor = "QUIZZES";
         public string quizURL = "More/Quiz.html";

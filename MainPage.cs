@@ -108,6 +108,7 @@ namespace KtaneWeb
                                     new DIV { class_ = "icon", id = "links-rel" }._(new A { class_ = "icon-link popup-link", href = "#" }.Data("popup", "links")._(new IMG { class_ = "icon-img", src = "HTML/img/links-icon.png" }, new SPAN { class_ = "icon-label" }._(translation.popupLinks))),
                                     new DIV { class_ = "icon", id = "tools-rel" }._(new A { class_ = "icon-link popup-link", href = "#" }.Data("popup", "tools")._(new IMG { class_ = "icon-img", src = "HTML/img/logfile-analyzer.png" }, new SPAN { class_ = "icon-label" }._(translation.popupTools))),
                                     new DIV { class_ = "icon", id = "view-rel" }._(new A { class_ = "icon-link popup-link", href = "#" }.Data("popup", "view")._(new IMG { class_ = "icon-img", src = "HTML/img/view-icon.png" }, new SPAN { class_ = "icon-label" }._(translation.popupView))),
+                                    new DIV { class_ = "icon", id = "random-rel" }._(new A { class_ = "icon-link popup-link", href = "#" }.Data("popup", "random")._(new IMG { class_ = "icon-img", src = "HTML/img/more.png" }, new SPAN { class_ = "icon-label" }._(translation.popupRandom))),
                                     new DIV { class_ = "icon", id = "more-rel" }._(new A { class_ = "icon-link popup-link", href = "#" }.Data("popup", "more")._(new IMG { class_ = "icon-img", src = "HTML/img/more.png" }, new SPAN { class_ = "icon-label" }._(translation.popupMore))),
                                     new DIV { class_ = "icon mobile-only" }._(new A { class_ = "icon-link popup-link", href = "#", id = "rule-seed-link-mobile" }.Data("popup", "rule-seed")._(new IMG { class_ = "icon-img", src = "HTML/img/spanner.png" }, new SPAN { class_ = "icon-label" }._(translation.tabRuleSeed))),
                                     new DIV { class_ = "icon mobile-only" }._(new A { class_ = "icon-link popup-link", href = "#", id = "filters-link-mobile" }.Data("popup", "filters")._(new IMG { class_ = "icon-img", src = "HTML/img/filter-icon.png" }, new SPAN { class_ = "icon-label" }._(translation.tabFilters))),
@@ -198,6 +199,19 @@ namespace KtaneWeb
                             new DIV { class_ = "icons" }._(
                                 new DIV { class_ = "icon" }._(new A { class_ = "icon-link view-link", href = "#" }.Data("view", "List")._(new IMG { class_ = "icon-img", src = "HTML/img/list-icon.png" }, new SPAN { class_ = "icon-label" }._(translation.displayMethodList))),
                                 new DIV { class_ = "icon" }._(new A { class_ = "icon-link view-link", href = "#" }.Data("view", "PeriodicTable")._(new IMG { class_ = "icon-img", src = "HTML/img/grid-icon.png" }, new SPAN { class_ = "icon-label" }._(translation.displayMethodPeriodic))))),
+
+                        // RANDOM (icon popup)
+                        new DIV { id = "random", class_ = "popup disappear stay" }._(
+                            new DIV { class_ = "close" },
+                            new DIV(
+                                new BUTTON { id = "random-module" }._(translation.randomModule)
+                            ),
+                            new A { id = "random-chosen-name", style = "text-decoration: underline; width: 15em;" }._("???"),
+                            new DIV(
+                                new IMG { id = "random-chosen-icon", src = "Icons/blank.png", style = "image-rendering: pixelated; width: 128px;" },
+                                new P { id = "random-chosen-description", style = "font-size: 80%; color: #777; width: 17em;" }._("?????")
+                            )
+                        ),
 
                         // MORE (icon popup)
                         new DIV { id = "more", class_ = "popup disappear stay" }._(
