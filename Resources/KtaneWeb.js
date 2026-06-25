@@ -1916,20 +1916,25 @@ function initializePage(modules, initIcons, initDocDirs, initFilters, initSelect
         return true;
     });
 
-    let chosenModule;
-    let chosensFileName;
     $('#random-module').click(function()
     {
         let filteredModules = modules.filter(mod => mod.MatchesFilter);
-        if (filteredModules.length == 0) { return; }
+        if (filteredModules.length == 0)
+        {
+            alert("Current filter matches no modules.");
+            return;
+        }
 
-        chosenModule = filteredModules[Math.floor(Math.random() * filteredModules.length)];
-        chosensFileName = chosenModule.hasOwnProperty('FileName') ? chosenModule.FileName : chosenModule.Name;
-        let chosenDescription = chosenModule.Descriptions.find(d => d.Language == "English");
-        let chosenIcon = `Icons/${(chosenModule.X == 0 && chosenModule.Y == 0) ? "blank" : chosensFileName}.png`; 
+        let chosenModule = filteredModules[Math.floor(Math.random() * filteredModules.length)];
+        let chosenFileName = chosenModule.FileName ?? chosenModule.Name;
+        let chosenDescription =
+            // Prefer user’s selected language
+            chosenModule.Descriptions.find(d => d.Language == Ktane.Languages[document.getElementById("lang-selector").value]) ??
+            chosenModule.Descriptions.find(d => d.Language == "English");
+        let chosenIcon = `Icons/${(chosenModule.X == 0 && chosenModule.Y == 0) ? "blank" : chosenFileName}.png`;
 
         document.getElementById('random-chosen-name').innerHTML = chosenModule.Name;
-        document.getElementById('random-chosen-name').href = `HTML/${chosensFileName}.html`;
+        document.getElementById('random-chosen-name').href = `HTML/${chosenFileName}.html`;
         document.getElementById('random-chosen-description').innerText = chosenDescription.Description;
         document.getElementById('random-chosen-icon').src = chosenIcon;
     });
